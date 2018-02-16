@@ -53,7 +53,7 @@ running
 ../../../pin -t obj-intel64/strace.dylib -- ./a.out
 ```
 
-then provides me with a list of all system calls made by the executable:
+then provides me with a list of all system calls made by the executable (also check out the other manual examples such as instruction counting!):
 
 ```
 cat strace.out
@@ -342,7 +342,7 @@ data:
 [WRITE in 7fb9b2401ebe]	10a954ec1: mov byte ptr [rdi+0x1e], 0x74
 ```
 
-You may also try the more sophisticated (but still proof of concept) tainting code from Salwan. They all work on my system, but I am unsure about their precision. If you want to apply tainting to real code, I suggest to either get Triton running (the tainter did not work on my Mac, and requires an older version of Pin) or search for other existing tainting tools. Because they require low level system access, they can be troublesome to get get running Please let me know if you manage to succesfully download, install, and run a memory tainter! I will post these in this directory.
+You may also try the more sophisticated tainting code from Salwan, and study his excellent introduction to tainting. They all work on my system, but I am unsure about their precision. If you want to apply tainting to real code, I suggest to either get Triton running (the tainter did not work on my Mac, and requires an older version of Pin) or search for other existing tainting tools. Because they require low level system access, they can be troublesome to get get running Please let me know if you manage to succesfully download, install, and run a memory tainter! I will post these in this directory.
 
 
 
