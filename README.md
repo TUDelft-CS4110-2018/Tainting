@@ -6,7 +6,15 @@ In this example, we will use Intel Pin, or Pintool: https://software.intel.com/e
 
 Tainting is the process of logging where read input data could possibly end up when running software. You do this by keeping track of the memory addresses that are used to store the input data. Initially, this is easy because we exactly know the memory address that is provided to a system call that is used to read the data. We capture such calls using an instrumentation framework such as Pin.
 
-As an example, I move to the ManualExamples directory that comes with Pin (pin-3.5-97503-gac534ca30-clang-mac/source/tools/ManualExamples/) and create the small executable test1.cpp, from the instructions by Jonathan Salwan:
+Pin comes with some examples (pin-3.5-97503-gac534ca30-clang-mac/source/tools/ManualExamples/). Build instructions for these examples can be found here: https://software.intel.com/sites/landingpage/pintool/docs/71313/Pin/html/index.html#EXAMPLES
+For example, I use the following commands:
+
+```
+$ cd source/tools/ManualExamples
+$ make all TARGET=intel64
+```
+
+In the ManualExamples folder, I create a small executable test1.cpp, from the instructions by Jonathan Salwan:
 
 ```c
 #include <iostream>
@@ -47,10 +55,16 @@ which I compile using g++
 g++ test1.cpp
 ```
 
-running
+running (on Mac)
 
 ```
 ../../../pin -t obj-intel64/strace.dylib -- ./a.out
+```
+
+or (Linux)
+
+```
+../../../pin -t obj-intel64/strace.so -- ./a.out
 ```
 
 then provides me with a list of all system calls made by the executable (also check out the other manual examples such as instruction counting!):
